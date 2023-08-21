@@ -25,7 +25,14 @@
       <div class="employees">
         <div class="row mt-5">
           <div class="col text-center">
-            <span class="text-secondary fs-2 fw-bold fst-italic">There are no Employees to be  Added!</span>
+            <span class="text-secondary fs-2 fw-bold fst-italic" *ngIf="employees.length == 0 ">There are no Employees to be  Added!</span>
+          </div>
+        </div>
+        
+        <!-- Area To Display All the Employees -->
+        <div class="row mt-4" *ngFor="let employee of employeesToDisplay;let i = index">
+          <div class="col">
+            <app-employee></app-employee>
           </div>
         </div>
       </div>
@@ -73,7 +80,7 @@
             <div class="row">
               <div class="col">
                 <div class="form-check form-check-inline">
-                  <input type="radio" class="form-check-input" formControlName="gender" name="gender" id="male" value="m">
+                  <input type="radio" class="form-check-input" formControlName="gender"  name="gender" id="male" value="m">
                   <label for="male" class="form-check-label"  >Male</label>
                 </div>
               </div>

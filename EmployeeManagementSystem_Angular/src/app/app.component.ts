@@ -42,7 +42,12 @@ export class AppComponent implements OnInit, AfterViewInit{
         jobExperience : this.fb.control(''),
         salary : this.fb.control(''),
       })
-      this.employeeService.getEmployees().subscribe(res => {console.log(res)})
+      this.employeeService.getEmployees().subscribe(res => {
+        for(let emp of res){
+          this.employees.unshift(emp);
+        }
+        this.employeesToDisplay = this.employees;
+      })
   }
 
   ngAfterViewInit(): void {
