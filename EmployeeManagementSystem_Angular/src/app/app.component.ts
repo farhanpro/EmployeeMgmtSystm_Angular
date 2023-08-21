@@ -50,6 +50,14 @@ export class AppComponent implements OnInit, AfterViewInit{
       })
   }
 
+  removeEmployee(event:any){
+    this.employees.forEach((val,index)=>{
+      if(val.id === parseInt(event)){
+        this.employeeService.deleteEmployee(event).subscribe((res)=>{this.employees.splice(index,1)});
+      }
+    })
+  }
+
   ngAfterViewInit(): void {
    // this.buttontemp.nativeElement.click();
   }

@@ -32,7 +32,7 @@
         <!-- Area To Display All the Employees -->
         <div class="row mt-4" *ngFor="let employee of employeesToDisplay;let i = index">
           <div class="col">
-            <app-employee></app-employee>
+            <app-employee [employee]="employee" (onRemoveEmployee)="removeEmployee($event)"></app-employee>
           </div>
         </div>
       </div>
